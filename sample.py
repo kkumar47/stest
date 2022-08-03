@@ -51,14 +51,14 @@ with pprocess:
 	Good_Residential['Month'] = Good_Residential['Date'].apply(lambda x: x.strftime("%B"))
 	Good_Residential['Year'] = Good_Residential['Date'].apply(lambda x: x.year)
 	def condition(x):
- 		if (x=='August' or x=='September' or x=='October'):
-    			return "Autumn"
-  		elif (x=='November' or x=='December' or x=='January'):
-    			return "Winter"
-  		elif (x=='February' or x=='March' or x=='April'):
-    			return "Spring"
-  		elif (x=='May' or x=='June' or x=='July'):
-    			return "Summer"
+ 	     if (x=='August' or x=='September' or x=='October'):
+    	          return "Autumn"
+  	     elif (x=='November' or x=='December' or x=='January'):
+    		  return "Winter"
+  	     elif (x=='February' or x=='March' or x=='April'):
+    		  return "Spring"
+  	     elif (x=='May' or x=='June' or x=='July'):
+    		  return "Summer"
 	Good_Residential['Season']=Good_Residential['Month'].apply(condition)
 	col5, col6 = st.columns(2)
 	col5.dataframe(Good_Residential)
