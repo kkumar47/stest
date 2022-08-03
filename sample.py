@@ -26,6 +26,16 @@ def bad_data():
 Good_Residential = good_data()
 Bad_Residential = bad_data()
 
+def condition(x):
+	if (x=='August' or x=='September' or x=='October'):
+		return "Autumn"
+	elif (x=='November' or x=='December' or x=='January'):
+		return "Winter"
+	elif (x=='February' or x=='March' or x=='April'):
+		return "Spring"
+	elif (x=='May' or x=='June' or x=='July'):
+		return "Summer"
+
 with loaddata:
 	st.subheader("Electricity Usage History data for Customers", anchor ='The Data')
 	col3,col4 = st.columns(2)
@@ -50,15 +60,6 @@ with pprocess:
 	Good_Residential['Holiday_Ind'] = Good_Residential['Day_Num'].apply(lambda x: 0 if x<=4 else 1)
 	Good_Residential['Month'] = Good_Residential['Date'].apply(lambda x: x.strftime("%B"))
 	Good_Residential['Year'] = Good_Residential['Date'].apply(lambda x: x.year)
-	def condition(x):
- 	     if (x=='August' or x=='September' or x=='October'):
-    	          return "Autumn"
-  	     elif (x=='November' or x=='December' or x=='January'):
-    		  return "Winter"
-  	     elif (x=='February' or x=='March' or x=='April'):
-    		  return "Spring"
-  	     elif (x=='May' or x=='June' or x=='July'):
-    		  return "Summer"
 	Good_Residential['Season']=Good_Residential['Month'].apply(condition)
 	col5, col6 = st.columns(2)
 	col5.dataframe(Good_Residential)
