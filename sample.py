@@ -20,6 +20,10 @@ def raw_data():
 	string_io_obj = StringIO(r.text)
 	return pd.read_csv(string_io_obj)
 rawdf = raw_data()
+def good_data():
+	return pd.read_csv('https://raw.githubusercontent.com/kkumar47/Usage-Data/main/Final/Good_Residential.csv')
+
+goodd = good_data()
 
 with loaddata:
 	st.subheader("Electricity Usage History data for Customers", anchor ='The Data')
@@ -27,5 +31,5 @@ with loaddata:
 	with col3:
 		st.text('Raw Data')
 		#The raw data is displayed here
-		st.dataframe(rawdf.head(10))
+		st.dataframe(goodd.head(10))
 	
