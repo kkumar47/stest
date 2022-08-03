@@ -2,4 +2,3 @@ streamlit==1.11.0
 requests
 numpy
 datetime
-calendar
