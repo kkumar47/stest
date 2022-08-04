@@ -6,6 +6,7 @@ import numpy as np
 import datetime as dt
 import calendar
 import random
+import dask as dd
 
 mainc = st.container()
 loaddata = st.container()
@@ -18,10 +19,10 @@ with mainc:
 	
 
 def good_data():
-	return pd.read_csv('https://raw.githubusercontent.com/kkumar47/Usage-Data/main/Final/Good_Residential.csv')[['Meter', 'Date_Raw','Usage']]
+	return dd.read_csv('https://raw.githubusercontent.com/kkumar47/Usage-Data/main/Final/Good_Residential.csv')[['Meter', 'Date_Raw','Usage']]
 
 def bad_data():
-	return pd.read_csv('https://raw.githubusercontent.com/kkumar47/Usage-Data/main/Final/Final_Bad_Customer.csv')
+	return dd.read_csv('https://raw.githubusercontent.com/kkumar47/Usage-Data/main/Final/Final_Bad_Customer.csv')
 
 Good_Residential = good_data()
 Bad_Residential = bad_data()
